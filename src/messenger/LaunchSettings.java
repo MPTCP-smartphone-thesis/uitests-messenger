@@ -8,9 +8,6 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 public class LaunchSettings extends UiAutomatorTestCase {
-	private static String ID_MESSAGE_TEXT = "com.facebook.orca:id/edit_text";
-	private static String ID_TO_FIELD = "com.facebook.orca:id/contact_picker_autocomplete_input";
-	private static String ID_SMILEY_BUTTON = "com.facebook.orca:id/stickers_button";
 	private static String ID_SMILEY_SMILE = "com.facebook.orca:id/sticker_image";
 	private static String ID_ACTION_CONTAINER = "com.facebook.orca:id/composer_actions_container";
 	private static String ID_PANEL_EMOJI = "com.facebook.orca:id/emoji_category_container";
@@ -32,33 +29,30 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	private void initializeMessenger() {
 		sleep(1000);
-		UiObject obj = new UiObject(
-				new UiSelector().descriptionContains("Send a new message"));
+		UiObject obj = Utils.getObjectWithDescription("Send a new message");
 		while (!obj.exists()) {
 			getUiDevice().pressBack();
-			UiObject buttonDiscard = new UiObject(new UiSelector().className(
-					"android.widget.Button").text("Discard"));
+			UiObject buttonDiscard = Utils.getObjectWithClassNameAndText(
+					"android.widget.Button", "Discard");
 			if (buttonDiscard.exists()) {
 				assertTrue("Cannot dismiss message",
 						Utils.clickAndWaitForNewWindow(buttonDiscard));
 			}
-			obj = new UiObject(
-					new UiSelector().descriptionContains("Send a new message"));
+			obj = Utils.getObjectWithDescription("Send a new message");
 		}
 		sleep(1000);
 		assertTrue("Compose button not here",
-				Utils.click(new UiObject(
-						new UiSelector().descriptionContains("Send a new message"))));
+ Utils.click(Utils
+				.getObjectWithDescription("Send a new message")));
 		sleep(1000);
-		Utils.clickAndWaitForNewWindow(new UiObject(
-				new UiSelector().className(
-						"android.widget.RelativeLayout").instance(0)));
+		Utils.clickAndWaitForNewWindow(Utils.getObjectWithClassName(
+				"android.widget.RelativeLayout", 0));
 		sleep(1000);
 		assertTrue("Cannot send message",
 				Utils.setText(
-						new UiObject(new UiSelector().className(
-								"android.widget.EditText").instance(1)),
-						"Hello, this is a test"));
+						Utils.getObjectWithClassName(
+"android.widget.EditText", 1),
+				"Hello, this is a test"));
 		sleep(1000);
 		assertTrue(
 				"Cannot send the message",
@@ -86,8 +80,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 											.instance(0)))));
 			sleep(1000);
 			assertTrue("Cannot send another message", Utils.setText(
-					new UiObject(new UiSelector().className(
-							"android.widget.EditText").instance(0)),
+					Utils.getObjectWithClassName("android.widget.EditText", 0),
 					"This is a textual message"));
 			sleep(1000);
 			assertTrue(
@@ -141,9 +134,8 @@ public class LaunchSettings extends UiAutomatorTestCase {
 			sleep(1000);
 			assertTrue(
 					"Cannot send photo",
-					Utils.click(new UiObject(
-							new UiSelector().descriptionContains(
-									"Hold send button for video, tap for photo"))));
+					Utils.click(Utils
+							.getObjectWithDescription("Hold send button for video, tap for photo")));
 			sleep(1000);
 		}
 	}
