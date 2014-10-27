@@ -68,7 +68,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		// let's spam
 
 		// Now we can do always the same
-		while (true) {
+		for (int i = 0; i < 15; i++) {
 			// Send text
 			assertTrue(
 					"Cannot send the message",
@@ -143,7 +143,9 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Messenger", "com.facebook.orca"));
+		Utils.launchTcpdump("messenger", 900);
 		messengerTest();
+		Utils.killTcpdump();
 	}
 
 }
