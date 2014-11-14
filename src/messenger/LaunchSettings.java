@@ -82,7 +82,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 			assertTrue("Cannot send another message", Utils.setText(
 					Utils.getObjectWithClassName("android.widget.EditText", 0),
 					"This is a textual message"));
-			sleep(1000);
+			sleep(2000);
 			assertTrue(
 					"Cannot send the message",
 					Utils.click(new UiObject(
