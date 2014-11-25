@@ -8,9 +8,11 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 public class LaunchSettings extends UiAutomatorTestCase {
-	private static String ID_SMILEY_SMILE = "com.facebook.orca:id/sticker_image";
-	private static String ID_ACTION_CONTAINER = "com.facebook.orca:id/composer_actions_container";
-	private static String ID_PANEL_EMOJI = "com.facebook.orca:id/emoji_category_container";
+	private static final String ID_SMILEY_SMILE = "com.facebook.orca:id/sticker_image";
+	private static final String ID_ACTION_CONTAINER = "com.facebook.orca:id/composer_actions_container";
+	private static final String ID_PANEL_EMOJI = "com.facebook.orca:id/emoji_category_container";
+
+	private static final int NB_SPAMS = 2;
 
 	/*
 	 * not used for now, typing does not work as expected.
@@ -68,7 +70,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		// let's spam
 
 		// Now we can do always the same
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < NB_SPAMS; i++) {
 			// Send text
 			assertTrue(
 					"Cannot send the message",
