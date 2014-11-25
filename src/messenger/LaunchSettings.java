@@ -143,7 +143,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Messenger", "com.facebook.orca"));
-		Utils.launchTcpdump("messenger", 900);
+		Utils.launchTcpdump("messenger");
 		messengerTest();
 		Utils.killTcpdump();
 	}
