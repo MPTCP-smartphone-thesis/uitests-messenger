@@ -12,7 +12,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	private static final String ID_ACTION_CONTAINER = "com.facebook.orca:id/composer_actions_container";
 	private static final String ID_PANEL_EMOJI = "com.facebook.orca:id/emoji_category_container";
 
-	private static final int NB_SPAMS = 3;
+	private static final int NB_SPAMS = 2;
 
 	/*
 	 * not used for now, typing does not work as expected.
