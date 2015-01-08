@@ -43,24 +43,19 @@ public class LaunchSettings extends UiAutomatorTestCase {
 			obj = Utils.getObjectWithDescription("Send a new message");
 		}
 		sleep(1000);
-		assertTrue("Compose button not here",
- Utils.click(Utils
+		assertTrue("Compose button not here", Utils.click(Utils
 				.getObjectWithDescription("Send a new message")));
 		sleep(1000);
 		Utils.clickAndWaitForNewWindow(Utils.getObjectWithClassName(
 				"android.widget.RelativeLayout", 0));
 		sleep(1000);
-		assertTrue("Cannot send message",
-				Utils.setText(
-						Utils.getObjectWithClassName(
-"android.widget.EditText", 1),
+		assertTrue("Cannot send message", Utils.setText(
+				Utils.getObjectWithClassName("android.widget.EditText", 1),
 				"Hello, this is a test"));
 		sleep(1000);
-		assertTrue(
-				"Cannot send the message",
-				Utils.click(new UiObject(
-						new UiSelector().resourceId(ID_ACTION_CONTAINER).childSelector(
-								new UiSelector()
+		assertTrue("Cannot send the message", Utils.click(new UiObject(
+				new UiSelector().resourceId(ID_ACTION_CONTAINER).childSelector(
+						new UiSelector()
 								.className("android.widget.ImageButton")
 								.instance(5)))));
 		sleep(1000);
@@ -72,10 +67,8 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		// Now we can do always the same
 		for (int i = 0; i < NB_SPAMS; i++) {
 			// Send text
-			assertTrue(
-					"Cannot send the message",
-					Utils.click(new UiObject(
-							new UiSelector().resourceId(ID_ACTION_CONTAINER)
+			assertTrue("Cannot send the message", Utils.click(new UiObject(
+					new UiSelector().resourceId(ID_ACTION_CONTAINER)
 							.childSelector(
 									new UiSelector().className(
 											"android.widget.ImageButton")
@@ -85,50 +78,39 @@ public class LaunchSettings extends UiAutomatorTestCase {
 					Utils.getObjectWithClassName("android.widget.EditText", 0),
 					"This is a textual message"));
 			sleep(2000);
-			assertTrue(
-					"Cannot send the message",
-					Utils.click(new UiObject(
-							new UiSelector().resourceId(ID_ACTION_CONTAINER)
+			assertTrue("Cannot send the message", Utils.click(new UiObject(
+					new UiSelector().resourceId(ID_ACTION_CONTAINER)
 							.childSelector(
 									new UiSelector().className(
 											"android.widget.ImageButton")
 											.instance(5)))));
 			sleep(1000);
 			// Send smiley
-			assertTrue(
-					"Cannot see smileys",
-					Utils.click(new UiObject(
-							new UiSelector().resourceId(ID_ACTION_CONTAINER)
+			assertTrue("Cannot see smileys", Utils.click(new UiObject(
+					new UiSelector().resourceId(ID_ACTION_CONTAINER)
 							.childSelector(
 									new UiSelector().className(
 											"android.widget.ImageButton")
 											.instance(3)))));
 			sleep(1000);
 			// Sometimes bug here...
-			Utils.click(new UiObject(
-					new UiSelector().resourceId(
-							ID_PANEL_EMOJI)
-							.childSelector(
-									new UiSelector().className(
-											"android.widget.FrameLayout")
-											.instance(1))));
+			Utils.click(new UiObject(new UiSelector()
+					.resourceId(ID_PANEL_EMOJI).childSelector(
+							new UiSelector().className(
+									"android.widget.FrameLayout").instance(1))));
 
-			assertTrue(
-					"Cannot send smiley",
-					Utils.click(new UiObject(
-							new UiSelector()
+			assertTrue("Cannot send smiley", Utils.click(new UiObject(
+					new UiSelector()
 							.className("android.widget.GridView")
 							.instance(0)
 							.childSelector(
 									new UiSelector()
-									.resourceId(ID_SMILEY_SMILE)
-									.instance(0)))));
+											.resourceId(ID_SMILEY_SMILE)
+											.instance(0)))));
 			sleep(1000);
 			// Send photo
-			assertTrue(
-					"Cannot see photo tab",
-					Utils.click(new UiObject(
-							new UiSelector().resourceId(ID_ACTION_CONTAINER)
+			assertTrue("Cannot see photo tab", Utils.click(new UiObject(
+					new UiSelector().resourceId(ID_ACTION_CONTAINER)
 							.childSelector(
 									new UiSelector().className(
 											"android.widget.ImageButton")
