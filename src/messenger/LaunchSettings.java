@@ -12,7 +12,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	private static final String ID_ACTION_CONTAINER = "com.facebook.orca:id/composer_actions_container";
 	private static final String ID_PANEL_EMOJI = "com.facebook.orca:id/emoji_category_container";
 
-	private static final int NB_SPAMS = 3;
+	private static int NB_SPAMS = 3;
 
 	/*
 	 * not used for now, typing does not work as expected.
@@ -127,6 +127,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Messenger", "com.facebook.orca"));
+		NB_SPAMS = Math.max(1, (int) (NB_SPAMS * Utils.getMultTime(this)));
 		messengerTest();
 	}
 
